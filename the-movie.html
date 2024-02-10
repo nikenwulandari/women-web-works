@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+  <meta content="width=device-width, initial-scale=1" name="viewport" />
+  <title>The Movie</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 16px;
+    }
+
+    .movie-list-container {
+      width: 100%;
+
+      @media only screen and (max-width: 425px) {
+        width: 400px;
+        height: auto;
+        overflow-x: scroll;
+        overflow-y: hidden;
+        white-space: nowrap;
+      }
+    }
+
+    #movie-list {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+
+      @media only screen and (max-width: 425px) {
+        flex-wrap: nowrap;
+
+      }
+    }
+
+    .movie {
+      max-width: 300px;
+      background-color: #f9f9f9;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .movie img {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+    }
+
+    .movie-content {
+      padding: 10px;
+    }
+
+    .movie-title {
+      font-size: 1.2rem;
+      font-weight: bold;
+      margin: 5px 0;
+    }
+
+    .movie-rating {
+      margin-bottom: 5px;
+    }
+
+    .movie-description {
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Movie Recommendations</h1>
+
+
+  <div class="movie-list-container">
+    <div id="movie-list"></div>
+  </div>
+</body>
+
+<script>
+  const apiUrl = 'https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc';
+
+  fetch(apiUrl)
+    .then(response => response.json())
+    .then(data => {
+      // Parse JSON response
+      const movies = data.results;
+
+      // Get the container to append movies
+      const movieListContainer = document.getElementById('movie-list');
+
+      // Iterate over movies and create HTML elements
+      movies.forEach(movie => {
+        // Create elements
+        const movieDiv = document.createElement('div');
+        movieDiv.classList.add('movie');
+        const img = document.createElement('img');
+        img.src = `https://image.tmdb.org/t/p/w300${movie.poster_path}`;
+        const contentDiv = document.createElement('div');
+        contentDiv.classList.add('movie-content');
+        const title = document.createElement('h2');
+        title.classList.add('movie-title');
+        title.textContent = movie.title;
+        const rating = document.createElement('p');
+        rating.classList.add('movie-rating');
+        rating.textContent = `Rating: ${movie.vote_average}`;
+        const description = document.createElement('p');
+        description.classList.add('movie-description');
+        description.textContent = movie.overview;
+
+        // Append elements to movieDiv
+        contentDiv.appendChild(title);
+        contentDiv.appendChild(rating);
+        contentDiv.appendChild(description);
+        movieDiv.appendChild(img);
+        movieDiv.appendChild(contentDiv);
+
+        // Append movieDiv to container
+        movieListContainer.appendChild(movieDiv);
+      });
+    })
+    .catch(error => console.log('Error fetching movies:', error));
+</script>
+
+</html>
