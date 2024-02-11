@@ -73,22 +73,16 @@
 <body>
   <h1>Movie Recommendations</h1>
 
+
   <div class="movie-list-container">
     <div id="movie-list"></div>
   </div>
 </body>
 
 <script>
-  const apiKey = 'GET_YOUR_API_KEY_ON_THE_MOVIE_DB'; // Replace with your actual API key
   const apiUrl = 'https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc';
 
-  fetch(apiUrl,
-    {
-      headers: {
-        'Authorization': `Bearer ${apiKey}`,
-        'Accept': 'application/json'
-      }
-    })
+  fetch(apiUrl)
     .then(response => response.json())
     .then(data => {
       // Parse JSON response
