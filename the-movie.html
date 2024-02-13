@@ -111,10 +111,17 @@
         description.classList.add('movie-description');
         description.textContent = movie.overview;
 
+        const date = document.createElement('p');
+        date.classList.add('movie-date');
+        date.textContent = `Movie Release Date: ${movie.start_date}`;
+
         // Append elements to movieDiv
         contentDiv.appendChild(title);
         contentDiv.appendChild(rating);
         contentDiv.appendChild(description);
+
+        contentDiv.appendChild(date);
+
         movieDiv.appendChild(img);
         movieDiv.appendChild(contentDiv);
 
