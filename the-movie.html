@@ -72,7 +72,7 @@
 </head>
 
 <body>
-  <h1>Movie Recommendations update by ratna</h1>
+  <h1>Movie Recommendations</h1>
 
 
   <div class="movie-list-container">
@@ -81,9 +81,16 @@
 </body>
 
 <script>
+  const accessTokenAuth = 'My Acces Token Auth in TMDB';
   const apiUrl = 'https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc';
 
-  fetch(apiUrl)
+  fetch(apiUrl,
+    {
+      headers: {
+        accept: 'aplication/json',
+        Authorization: `Bearer ${accessTokenAuth}`
+      }
+    })
     .then(response => response.json())
     .then(data => {
       // Parse JSON response
