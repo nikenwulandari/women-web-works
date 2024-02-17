@@ -1,0 +1,15 @@
+.movie-list {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+
+  @media only screen and (max-width: 425px) {
+    flex-wrap: nowrap;
+  }
+
+  app-movie-card {
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}

@@ -1,0 +1,36 @@
+.movie {
+  max-width: 300px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.movie img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.movie-content {
+  padding: 10px;
+}
+
+.movie-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin: 5px 0;
+}
+
+.movie-rating {
+  margin-bottom: 5px;
+}
+
+.movie-description {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  max-height: 3.6em; /* Approx 2 lines of text */
+}

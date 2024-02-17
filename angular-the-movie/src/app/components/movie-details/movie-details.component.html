@@ -1,0 +1,17 @@
+<div *ngIf="movieDetails">
+  <h1>{{ movieDetails.title }}</h1>
+  <div class="movie-details">
+    <div class="poster">
+      <img
+        [src]="'https://image.tmdb.org/t/p/w300' + movieDetails.poster_path"
+        alt="{{ movieDetails.title }}"
+      />
+    </div>
+    <div class="details">
+      <p><strong>Release Date:</strong> {{ movieDetails.release_date }}</p>
+      <p><strong>Rating:</strong> {{ movieDetails.vote_average }}</p>
+      <p><strong>Overview:</strong> {{ movieDetails.overview }}</p>
+      <button (click)="goBack()">Back</button>
+    </div>
+  </div>
+</div>
