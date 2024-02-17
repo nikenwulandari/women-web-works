@@ -10,9 +10,14 @@
       font-family: Arial, sans-serif;
       margin: 0;
       padding: 16px;
-
+      background-color: #E6A4B4;
     }
-
+    h1 {
+      color:#F5EEE6;
+      text-align: center;
+      margin-bottom: 2em;
+      
+    }
     .movie-list-container {
       width: 100%;
 
@@ -29,6 +34,8 @@
       display: flex;
       gap: 20px;
       flex-wrap: wrap;
+      justify-content: space-evenly;
+     
 
       @media only screen and (max-width: 425px) {
         flex-wrap: nowrap;
@@ -39,7 +46,7 @@
     .movie {
       max-width: 300px;
       background-color: #f9f9f9;
-      border-radius: 8px;
+      border-radius: 1.5em;
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     }
 
@@ -47,6 +54,7 @@
       width: 100%;
       height: auto;
       object-fit: cover;
+
     }
 
     .movie-content {
@@ -81,14 +89,14 @@
 </body>
 
 <script>
-  const accessTokenAuth = 'My Acces Token Auth in TMDB';
+  const accessToken = 'eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJlZGJmMjkzYWQyNjUyMDgyMjI2MjQ3ZjViMWM2OWRiZCIsInN1YiI6IjY1YzhkNmU4OTQ1MWU3MDE4NDdjM2VhZSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.qbi2YQcCxRMlumNSX8vEErSPBUeHZ7LXEWYYvlrAGrA';
   const apiUrl = 'https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc';
 
   fetch(apiUrl,
     {
       headers: {
         accept: 'aplication/json',
-        Authorization: `Bearer ${accessTokenAuth}`
+        Authorization: `Bearer ${accessToken}`
       }
     })
     .then(response => response.json())
