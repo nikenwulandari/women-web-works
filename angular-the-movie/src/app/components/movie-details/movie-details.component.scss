@@ -1,0 +1,29 @@
+:host {
+  display: block;
+  padding: 20px;
+}
+
+.movie-details {
+  display: flex;
+}
+
+.poster {
+  margin-right: 20px;
+}
+
+.poster img {
+  width: 300px;
+  height: auto;
+}
+
+.details {
+  flex: 1;
+}
+
+.details p {
+  margin-bottom: 10px;
+}
+
+.details p strong {
+  font-weight: bold;
+}

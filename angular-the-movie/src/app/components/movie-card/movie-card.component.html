@@ -1,0 +1,15 @@
+<div class="movie">
+  <img
+    [src]="
+      movie.poster_path
+        ? 'https://image.tmdb.org/t/p/w300' + movie.poster_path
+        : 'https://via.placeholder.com/300x450?text=No+Image'
+    "
+    alt="{{ movie.title }}"
+  />
+  <div class="movie-content">
+    <h2 class="movie-title">{{ movie.title }}</h2>
+    <p class="movie-rating">Rating: {{ movie.vote_average }}</p>
+    <p class="movie-description">{{ movie.overview }}</p>
+  </div>
+</div>

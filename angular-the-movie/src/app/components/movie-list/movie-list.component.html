@@ -1,0 +1,8 @@
+<h1>Popular Movies</h1>
+<div class="movie-list">
+  <app-movie-card
+    *ngFor="let movie of movies"
+    [movie]="movie"
+    [routerLink]="['/movies', movie.id]"
+  ></app-movie-card>
+</div>
