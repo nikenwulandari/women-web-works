@@ -89,14 +89,14 @@
 </body>
 
 <script>
-  const accessTokenAuth = 'eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJlZGJmMjkzYWQyNjUyMDgyMjI2MjQ3ZjViMWM2OWRiZCIsInN1YiI6IjY1YzhkNmU4OTQ1MWU3MDE4NDdjM2VhZSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.qbi2YQcCxRMlumNSX8vEErSPBUeHZ7LXEWYYvlrAGrA';
+  const accessToken = 'eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJlZGJmMjkzYWQyNjUyMDgyMjI2MjQ3ZjViMWM2OWRiZCIsInN1YiI6IjY1YzhkNmU4OTQ1MWU3MDE4NDdjM2VhZSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.qbi2YQcCxRMlumNSX8vEErSPBUeHZ7LXEWYYvlrAGrA';
   const apiUrl = 'https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc';
 
   fetch(apiUrl,
     {
       headers: {
         accept: 'aplication/json',
-        Authorization: `Bearer ${accessTokenAuth}`
+        Authorization: `Bearer ${accessToken}`
       }
     })
     .then(response => response.json())
